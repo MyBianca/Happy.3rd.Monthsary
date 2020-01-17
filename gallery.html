@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VC Gallery</title>
+	<link rel="stylesheet" href="style/navigation.css">
+	<link rel="stylesheet" href="style/scrollbar.css">
+	<link rel = "icon" href =  "monthsary.png" type = "image/x-icon"> 
+</head>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+*, *:before, *:after{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:border-box;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: black;
+  font-size: 16px;
+  font-family: 'Roboto','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.main-title{
+  font-size: calc(14px + 8vh);
+  line-height: calc(32px + 8vh);
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+  color: #fff6a9;
+  font-family: "Sacramento", cursive;
+  text-align: center;
+  animation: blink 12s infinite;
+  -webkit-animation: blink 12s infinite;
+}
+
+@-webkit-keyframes blink {
+  20%,
+  24%,
+  60% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+}
+
+@keyframes blink {
+  20%,
+  24%,
+  60% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+}
+
+.container{
+  padding: 1em 0;
+  float: left;
+  width: 50%;
+}
+@media screen and (max-width: 640px){
+  .container{
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 900px){
+  .container{
+    width: 33.33333%;
+  }
+}
+
+.container .title{
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.content .content-overlay {
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay{
+  opacity: 80%;
+}
+
+.content-image{
+  width: 100%;
+}
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details h3{
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.content-details p{
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.fadeIn-bottom{
+  top: 80%;
+}
+
+.fadeIn-top{
+  top: 20%;
+}
+
+.fadeIn-left{
+  left: 20%;
+}
+
+.fadeIn-right{
+  left: 80%;
+}
+
+#currentPage
+{
+    color: #98ff98;
+    pointer-events: none;
+    cursor: default;
+}
+
+</style>
+<body>
+
+  <!--NAVIGATION BAR-->
+    <div class="navigation">
+        <div class="logoContainer"></div>     <!--logo-->
+
+        <div class="nav">   <!--MENU-->
+            <span id="showMenu" onclick="show()">&#9776;</span>
+            <span id="hideMenu" onclick="hide()">&times;</span>
+        </div>
+    </div>
+    <div id="modal" class="showNav">
+        <div class="menu">
+                <a href="index.html">3rd Monthsary</a>
+                <a href="gallery.html" id="currentPage">Our Love Story</a>
+                <a href="months.html">You're Lovely</a>
+                <a href="letter.html">Message For Her</a>
+                <a href="poem.html">I Found Her</a>
+        </div>
+    </div>
+
+    <div id="player">
+    <audio controls autoplay hidden>
+     <source src="song.mp3" type="audio/mpeg">
+        unsupported !! 
+    </audio>
+</div>
+
+<h1 class="main-title">&#x2764; Our love story began here &#x2764;</h1>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m11.jpg">
+      <div class="content-details fadeIn-bottom">
+        <h3 class="content-title">I LOVE YOU INFINITELY</h3>
+        <p class="content-text">Hi mahal I love you because I love you because it would be impossible for me not to love you. Kaya everytime na nag vivideo call tayo inlove na inlove ako sayo</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m8.jpg">
+      <div class="content-details fadeIn-top">
+        <h3>KILIG NA KILIG</h3>
+        <p>Cute natin dito mahal HAHAHAHA. At kilig na kilig naman ako diyan that time &#x2764;</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m13.jpg">
+      <div class="content-details fadeIn-left">
+        <h3>FIRST VIDEO CALL</h3>
+        <p>Eto yung first video call natin mahal at nahihiya pa ako niyan sayo. Pano ba naman asa isip ko that time bianca to ivan? Masiyado na ata maatas pagiging ambitious ko hahahaha</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m23.jpg">
+      <div class="content-details fadeIn-right">
+        <h3>10:10</h3>
+        <p>My love to you is perfect 10 and there is no limit to my love for you mahal ko. Everyday of my life is so perfect because it starts and only ends with loving you</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m17.jpg">
+      <div class="content-details fadeIn-top fadeIn-left">
+        <h3>WALANG LOWBAT-LOWBAT</h3>
+        <p>Mahal pansin mo 1% nalang ako hahahaha. At alam ko hindi ito yung first time na pag nag-uusap tayo is nalolowbat ako. Pano ba naman kasi limot ko na lahat pag kausap ka. Ang oras, problema, pagod, at antok wait pati nga ba antok? Hahahaha</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m16.jpg">
+      <div class="content-details fadeIn-top fadeIn-right">
+        <h3>MAYBE IM SO SLEEPY</h3>
+        <p>Maybe antok at pagod na ako diyan. But my love for you will never get tired</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m18.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-left">
+        <h3>HI MAHAL</h3>
+        <p>Ang ganda talaga with or without mask sobrang ganda talaga. Kaya nga inlove na inlove sayo si Ivan Christian Afan palagi, oras-oras, minu-minuto, segu-segundo</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m22.jpg">
+      <div class="content-details fadeIn-bottom">
+        <h3 class="content-title">MY QUEEN</h3>
+        <p class="content-text">Hi my queen and I'm your king and together we build our lovely empire</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m28.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-right">
+        <h3>11:11</h3>
+        <p>Every time na napapatapat yung time 11:11 we always have a wish. And wish ko lang naman talaga is mag grow at maging strong pa tayo</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m21.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-right">
+        <h3>MY LOVELY SISIW</h3>
+        <p>Flowers is special like you, flowers is colorful like you did to me, flowers is beautiful like our relationship. You are my flower and am your bee</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m39.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-right">
+        <h3>KILIG NA KILIG</h3>
+        <p>HAHAHAHA i remember this mahal yung ang kulit ko screen shot at ng screen shot. Tapos ikaw hindi ko maexplain kung yamot o kilig na kilig ka din naman</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m25.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-right">
+        <h3>MY HEART</h3>
+        <p>Mahal my heart is always belong to you. In you i've found the of my life</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body><div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m20.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-right">
+        <h3>YOU'RE SO SPECIAL</h3>
+        <p>Yes mahal ko you're so special to me every day. Ang ngiti mo, mata mo, mga kamay mo, at lahat lahat</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body><div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m27.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-right">
+        <h3>ISANG ANTUKIN AT ISANG LASING</h3>
+        <p>HAHAHAHHA mahal remember this lasing ako niyan habang ikaw pagod at antukin</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body><div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m26.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-right">
+        <h3>YOU MAKE ME SMILE EVERYDAY</h3>
+        <p>Mahal ko I love you for me making smile every day kahit na pagod na pagod na ako you always there alam mo ba mahal onting-onti na nawawala sa vocubalry ko ang PAGOD dahil sayo lagi mo pinararamdam sakin yan ikaw nga happy pill ko ehhh</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body><div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m19.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-right">
+        <h3>YAMOT PERO KINIKILIG</h3>
+        <p>Pano mayamot si mahal pero kinikilig pa din hahahahahaha. I love you mahal ko</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body><div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m29.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-right">
+        <h3>WHY SO SERIOUS?</h3>
+        <p>Bakit ang seryoso mo ata diyan mahal. Gulat ka ata oo eto din yung first time natin mag video call hahahaha</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body><div class="container">
+  <div class="content">
+      <div class="content-overlay"></div>
+      <img class="content-image" src="m30.jpg">
+      <div class="content-details fadeIn-bottom fadeIn-right">
+        <h3>MY HAIR</h3>
+        <p>Abaa syempre dapat laging gwapo kay mahal para pogi points hahahaha. I love you mahal eto yung before ka pumasok sa school sinermonan pa ata kita niyan kasi lingal ka</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+    <script src="js/jquery-3x.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</html>

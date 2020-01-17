@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel = "icon" href =  "monthsary.png" type = "image/x-icon"> 
+
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/scrollbar.css">
+    <title>To My Bianca</title>
+</head>
+<body>
+
+<div id="player">
+    <audio controls autoplay hidden>
+     <source src="song.mp3" type="audio/mpeg">
+        unsupported !! 
+    </audio>
+</div>
+
+    <!--NAVIGATION BAR-->
+    <div class="navigation">
+        <div class="logoContainer"></div>     <!--logo-->
+
+        <div class="nav">   <!--MENU-->
+            <span id="showMenu" onclick="show()">&#9776;</span>
+            <span id="hideMenu" onclick="hide()">&times;</span>
+        </div>
+    </div>
+    <div id="modal" class="showNav">
+        <div class="menu">
+                <a href="index.html" id="currentPage">3rd Monthsary</a>
+                <a href="gallery.html">Our Love Story</a>
+                <a href="months.html">You're Lovely</a>
+                <a href="letter.html">Message For Her</a>
+                <a href="poem.html">I Found Her</a>
+        </div>
+    </div>
+
+    <!--CONTENT AND BACKGROUND-->
+    <div class="bgContainer">
+        <img class="scroll" id="object1" data-rate="0" src="back2.jpg"/>
+        <img class="scroll" id="object2" data-rate="0.5" src="love.png"/>
+    </div>
+
+<div class="content">
+    <div class="container">
+        <h1 class="scroll" data-rate="-2">&#9829;Happy 3rd Monthsary&#9829; </h1>
+        <div class="deforestation">
+            <img id="deforestation" class="scroll" data-rate="-1" src="m4.jpg" alt="Deforestation">
+            <p class="scroll" data-rate="-.9">Mahal ko Happy Love 3rd Monthsary just what I said every month mas gagrabe yung surprises ko sayo kasi everyday mas gumagrabe yung pagka-inlove ko sayo. Mahal ko, sisiw ko, bb ko, asawa ko, buhay ko, mundo ko, kalawakan ko or whatever else I call you. You are the only one I love, and you are my only love until the end.</p>
+            <h1 class="scroll" data-rate="-1.45">
+My mahal&#x2764;</h1>
+        </div>
+        
+        <div class="calamity">
+            <img src="m8.jpg" class="scroll" >
+            <img src="m10.jpg" class="scroll" >
+            <img src="m25.jpg" class="scroll" >
+        </div>
+
+        <h1 class="scroll" data-rate="-.3">Our love begins here</h1>
+        <h1 class="scroll" data-rate="-.3">In everyday Love.</h1>
+        <div class="reforestation">
+          <img data-rate="-1" src="m40.jpg">
+            <h1 class="scroll" data-rate=".12">In every smile you do,<br>You make my day completed&#x2764;</h1>
+        </div>
+    </div>
+
+    <div class="world">
+        <p class="scroll" data-rate=".1">I love you every minute of my life you’re my love and my world.</p>
+        <div class="globe"></div>
+    </div>
+
+</div>
+<footer>
+<div class="container">
+  <video class="vid" src="vid2.mp4" muted autoplay loop playsinline> </video>
+    </div>
+</footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/jquery-3x.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</body>
+</html>
